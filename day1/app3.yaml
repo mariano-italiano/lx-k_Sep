@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: "2024-09-24T10:13:30Z"
+  labels:
+    kubernetes.io/metadata.name: app3
+  name: app3
+  resourceVersion: "6992"
+  uid: 589762ba-c2ed-425d-9e92-a2c1ebf46248
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active
