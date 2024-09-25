@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: my-replicaset2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      kubernetes.io/env: test
+  template:
+    metadata:
+      labels:
+        kubernetes.io/env: test
+    spec:
+      containers:
+      - name: c1
+        image: nginx

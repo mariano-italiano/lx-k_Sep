@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-demo
+spec:
+  volumes:
+  - name: vol1
+    emptyDir: {}
+  initContainers:
+  - name: delay
+    image: busybox
+    command: ['sleep', '30']
+  - name: download
+    image: alpine:3.2
+    command: ['sh', '-c', 'apk update; apk add git; mkdir /app/app-content; git clone https://github.com/mariano-italiano/lx-k_Sep.git /app/app-content']
+    volumeMounts:
+    - name: vol1
+      mountPath: /app
+  containers:
+  - name: nginx
+    image: nginx:1.14.2
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    - name: vol1
+      mountPath: /usr/share/nginx/html

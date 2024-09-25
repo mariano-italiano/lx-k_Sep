@@ -1,0 +1,322 @@
+kubectl get nodes
+kubectl get podes
+kubectl get pods
+kubectl exec -it pod1 -- sh
+kubectl exec -it pod1 -- ls -la /usr/share/nginx
+kubectl exec -it pod1 -- hostname
+kubectl get pods -o wide
+kubectl drain worker01 
+kubectl drain worker01 --ignore-daemonsets
+kubectl drain worker01 --ignore-daemonsets --force
+kubectl get pods
+kubectl get nodes
+kubectl create deploy test-maintenance --image nginx --replicas 3
+kubectl get nodes
+kubectl get pods 
+kubectl get pods -o wide
+kubectl events
+kubectl get pods -o wide
+kubectl uncordon worker01
+kubectl get nodes
+kubectl drain worker02
+kubectl drain worker02 --ignore-daemonsets
+kubectl get pods -o wide
+kubectl get nodes
+kubectl uncordon worker02
+kubectl get nodes
+kubectl get pods -o wide
+kubectl rollout restart deployment test-maintenance 
+kubectl run test --image nginx -o yaml --dry-run=client
+cd lx-k_Sep/
+mkdir day2
+cd day2
+ls -la
+vi sidecar-pod.ymal
+vi sidecar-pod.yaml
+kubectl apply -f sidecar-pod.yaml
+kubectl get pods
+kubectl logs sidecar-pod 
+kubectl logs sidecar-pod -c busybox1
+kubectl logs sidecar-pod -c sidecar-pod.yaml 
+kubectl logs sidecar-pod -c sidecar 
+kubectl logs sidecar-pod --all-containers 
+kubectl get pods
+vi init-pod.yaml
+kubectl apply -f init-pod.yaml
+watch -n1 kubectl get pods
+vi init-pod.yaml
+kubectl exec -it sidecar-pod -- bash
+kubectl exec -it sidecar-pod -- sh
+kubectl exec -it sidecar-pod -c sidecar -- sh
+kubectl run test --image alpine 
+kubectl get pods
+kubectl events
+kubectl delete pod test
+vi alpine-test.yaml
+kubectl apply -f alpine-test.yaml
+kubectl get pods
+kubectl delete -f alpine-test.yaml
+vi alpine-test.yaml
+kubectl apply -f alpine-test.yaml
+kubectl exec -it alpine -- bash
+kubectl exec -it alpine -- sh
+cp -rp sidecar-pod.yaml my.yaml
+vi my.yaml
+kubectl apply -f my.yaml
+vi my.yaml
+kubectl apply -f my.yaml
+kubectl get pods 
+watch -n1 kubectl get pods 
+kubectl exec -it my -c sidecar -- sh
+cat my.yaml 
+kubectl delete pod my 
+rm my.yaml 
+ls -la
+cp -rp init-pod.yaml init-demo.yaml
+vi init-demo.yaml
+kubectl apply -f init-demo.yaml
+vi init-demo.yaml
+kubectl apply -f init-demo.yaml
+watch -n1 kubectl get pods
+kubectl exec -it init-demo -- sh
+kubectl exec -it init-demo -- bash
+kubectl logs init-demo 
+kubectl logs init-demo --all-containers 
+kubectl get pods -o wide
+kubectl api-resources
+kubectl api-resources | grep rs
+vi my-replicaset.yaml
+kubectl apply -f my-replicaset.yaml
+kubectl get rs
+kubectl get rs,pods
+cp -rp my-replicaset.yaml my-replicaset2.yaml 
+kubectl get pods --show-
+kubectl get pods --show-labels 
+kubectl run test123 --image nginx --labels kubernetes.io/env=test
+kubectl get pods --show-labels 
+vi my-replicaset2.yaml 
+kubectl apply -f my-replicaset2.yaml
+kubectl get pods --show-labels 
+kubectl get rs,pods --show-labels 
+kubectl run test456 --image nginx --labels kubernetes.io/env=test
+kubectl get rs,pods --show-labels 
+kubectl events
+kubectl get rs,pod
+kubectl delete pod test123
+kubectl get rs,pod
+kubectl scale rs my-replicaset2 --replicas=8
+kubectl get rs,pod
+kubectl scale rs my-replicaset2 --replicas 1
+kubectl get rs,pod
+history
+history| awk '$1 > 115' | cut -c 8- >> ../day2-history.txt
+watch -n1 kubectl get pods
+watch -n1 kubectl get pods -o  wide
+kubectl get nodes
+kubectl get podes
+kubectl get pods
+kubectl exec -it pod1 -- sh
+kubectl exec -it pod1 -- ls -la /usr/share/nginx
+kubectl exec -it pod1 -- hostname
+kubectl get pods -o wide
+kubectl drain worker01 
+kubectl drain worker01 --ignore-daemonsets
+kubectl drain worker01 --ignore-daemonsets --force
+kubectl get pods
+kubectl get nodes
+kubectl create deploy test-maintenance --image nginx --replicas 3
+kubectl get nodes
+kubectl get pods 
+kubectl get pods -o wide
+kubectl events
+kubectl get pods -o wide
+kubectl uncordon worker01
+kubectl get nodes
+kubectl drain worker02
+kubectl drain worker02 --ignore-daemonsets
+kubectl get pods -o wide
+kubectl get nodes
+kubectl uncordon worker02
+kubectl get nodes
+kubectl get pods -o wide
+kubectl rollout restart deployment test-maintenance 
+kubectl run test --image nginx -o yaml --dry-run=client
+cd lx-k_Sep/
+mkdir day2
+cd day2
+ls -la
+vi sidecar-pod.ymal
+vi sidecar-pod.yaml
+kubectl apply -f sidecar-pod.yaml
+kubectl get pods
+kubectl logs sidecar-pod 
+kubectl logs sidecar-pod -c busybox1
+kubectl logs sidecar-pod -c sidecar-pod.yaml 
+kubectl logs sidecar-pod -c sidecar 
+kubectl logs sidecar-pod --all-containers 
+kubectl get pods
+vi init-pod.yaml
+kubectl apply -f init-pod.yaml
+watch -n1 kubectl get pods
+vi init-pod.yaml
+kubectl exec -it sidecar-pod -- bash
+kubectl exec -it sidecar-pod -- sh
+kubectl exec -it sidecar-pod -c sidecar -- sh
+kubectl run test --image alpine 
+kubectl get pods
+kubectl events
+kubectl delete pod test
+vi alpine-test.yaml
+kubectl apply -f alpine-test.yaml
+kubectl get pods
+kubectl delete -f alpine-test.yaml
+vi alpine-test.yaml
+kubectl apply -f alpine-test.yaml
+kubectl exec -it alpine -- bash
+kubectl exec -it alpine -- sh
+cp -rp sidecar-pod.yaml my.yaml
+vi my.yaml
+kubectl apply -f my.yaml
+vi my.yaml
+kubectl apply -f my.yaml
+kubectl get pods 
+watch -n1 kubectl get pods 
+kubectl exec -it my -c sidecar -- sh
+cat my.yaml 
+kubectl delete pod my 
+rm my.yaml 
+ls -la
+cp -rp init-pod.yaml init-demo.yaml
+vi init-demo.yaml
+kubectl apply -f init-demo.yaml
+vi init-demo.yaml
+kubectl apply -f init-demo.yaml
+watch -n1 kubectl get pods
+kubectl exec -it init-demo -- sh
+kubectl exec -it init-demo -- bash
+kubectl logs init-demo 
+kubectl logs init-demo --all-containers 
+kubectl get pods -o wide
+kubectl api-resources
+kubectl api-resources | grep rs
+vi my-replicaset.yaml
+kubectl apply -f my-replicaset.yaml
+kubectl get rs
+kubectl get rs,pods
+cp -rp my-replicaset.yaml my-replicaset2.yaml 
+kubectl get pods --show-
+kubectl get pods --show-labels 
+kubectl run test123 --image nginx --labels kubernetes.io/env=test
+kubectl get pods --show-labels 
+vi my-replicaset2.yaml 
+kubectl apply -f my-replicaset2.yaml
+kubectl get pods --show-labels 
+kubectl get rs,pods --show-labels 
+kubectl run test456 --image nginx --labels kubernetes.io/env=test
+kubectl get rs,pods --show-labels 
+kubectl events
+kubectl get rs,pod
+kubectl delete pod test123
+kubectl get rs,pod
+kubectl scale rs my-replicaset2 --replicas=8
+kubectl get rs,pod
+kubectl scale rs my-replicaset2 --replicas 1
+kubectl get rs,pod
+history
+history| awk '$1 > 115' | cut -c 8- >> ../day2-history.txt
+cd ..
+git status
+cd day2
+ls -la
+kubectl run pod --image nginx --dry-run=client -o yaml
+vi my-deployment.yaml
+kubectl apply -f my-deployment.yaml
+kubectl get deploy
+kubectl delete deployments.apps test-maintenance 
+kubectl  get deploy
+kubectl describe deployments.apps my-deployment 
+kubectl scale deployment my-deployment --replicas =10
+kubectl scale deployment my-deployment --replicas 10
+kubectl describe deployments.apps my-deployment 
+kubectl get pods
+kubectl describe deployments.apps my-deployment 
+kubectl edit deployments.apps my-deployment 
+kubectl describe deployments.apps my-deployment 
+kubectl edit deployments.apps my-deployment 
+kubectl apply -f my-deployment.yaml 
+kubectl describe deployments.apps my-deployment 
+kubectl edit deployments.apps my-deployment 
+kubectl describe deployments.apps my-deployment 
+kubectl edit deployments.apps my-deployment 
+kubectl get pods
+kubectl scale deploy my-deployment --replicas 10
+kubectl get pods
+kubectl set image deploy my-deployment container1=nginx:1.16.1 
+kubectl rollout status  deployment my-deployment 
+kubectl rollout history deployment my-deployment 
+kubectl describe deployments.apps my-deployment 
+kubectl annotate deployments.apps my-deployment kubernetes.io/change-cause="Updated image from 1.14.2 to 1.16.1, date: 25.09.2024, implementer: Marcin K., change number No1234"
+kubectl rollout history deployment my-deployment 
+kubectl describe deployments.apps my-deployment 
+kubectl rollout history deployment my-deployment 
+kubectl edit deployments.apps my-deployment 
+watch -n1 kubectl get pods
+kubectl rollout history deployment my-deployment 
+kubectl set image deployment my-deployment container1=nginx:broken --record
+kubectl rollout history deployment my-deployment 
+kubectl rollout status deployment my-deployment 
+kubectl get pods
+kubectl rollout undo deployment my-deployment --to-revision 3
+watch -n1 kubectl get pods
+kubectl rollout status deployment my-deployment 
+kubectl rollout history deployment my-deployment 
+kubectl rollout undo deployment my-deployment --to-revision 4
+kubectl rollout history deployment my-deployment 
+kubectl annotate deployments.apps my-deployment kubernetes.io/change-cause="rolled back to former version 4"
+kubectl rollout history deployment my-deployment 
+kubectl edit deployments.apps my-deployment 
+kubectl describe deployments.apps my-deployment 
+kubectl set image deployment my-deployment container1=nginx
+watch -n1 kubectl get pods
+kubectl get rs
+kubectl get pods -o wide
+kubectl describe node master 
+vi my-daemonset.yaml
+kubectl apply -f my-daemonset.yaml
+kubectl get ds,pods -o wide
+vi my-daemonset.yaml 
+kubectl apply -f my-daemonset.yaml
+kubectl get ds,pods -o wide
+kubectl apply -f my-daemonset.yaml
+kubectl get ds,pods -o wide
+kubectl edit daemonsets.apps my-daemonset 
+kubectl get ds,pods -o wide
+kubectl delete pod my-daemonset-ncd2q
+kubectl get ds,pods -o wide
+kubectl delete pod my-deployment-5bcd644bc7-z2tff my-deployment-5bcd644bc7-xtxv7 my-deployment-5bcd644bc7-x28dn
+kubectl get ds,pods -o wide
+ls -la
+cd lx-k_Sep/day2/
+ls -la
+kubectl get pods
+kubectl describe pod nginx
+kubectl expose pod nginx --name clusterip-svc --port 80 
+kubectl edit pod nginx 
+kubectl expose pod nginx --name clusterip-svc --port 80 
+kubectl get svc,ep,pod
+kubectl get svc,ep,pod -o wide
+curl 10.108.82.220
+curl 10.0.3.94
+kubectl get svc,ep,pod -o wide
+kubectl expose deployment my-deployment --name nodeport-svc --type NodePort --port 80
+kubectl get svc,ep,pod -o wide
+kubectl edit svc nodeport-svc 
+kubectl get svc,ep,pod -o wide
+kubectl expose deployment my-deployment --name lb-svc --type LoadBalancer --port 80
+kubectl get svc,ep,pod -o wide
+kubectl edit svc lb-svc 
+kubectl get svc,ep,pod -o wide
+kubectl edit svc lb-svc 
+kubectl get svc,ep,pod -o wide
+history
+history| awk '$1 > 115' | cut -c 8- >> ../day2-history.txt
