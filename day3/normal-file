@@ -1,0 +1,4 @@
+ENV1=10
+ENV2=v1.0
+# this is a branch name
+BNAME=develop

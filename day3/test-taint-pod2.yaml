@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: test-taint-pod2
+  name: test-taint-pod2
+spec:
+  containers:
+  - image: nginx
+    name: pod
+  tolerations:
+  - key: "zone"
+    operator: "Equal"
+    value: "secure"
+    effect: "NoSchedule"

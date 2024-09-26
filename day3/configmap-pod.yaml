@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmap-pod
+spec:
+  containers:
+    - name: test-container
+      image: k8s.gcr.io/busybox
+      command: [ "/bin/sh", "-c", "env; while true; do sleep 3600; done"]
+      env:
+        - name: SERVICE_B
+          valueFrom:
+            configMapKeyRef:
+              name: map2
+              key: productVersion
+        - name: BRANCH_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: from-env-file
+              key: BNAME  
+      envFrom:
+        - configMapRef:
+            name: from-env-file

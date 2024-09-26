@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fancy Dynamic Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #007BFF;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 10px 0;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: inline;
+            margin: 0 15px;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #007BFF;
+            color: #fff;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuItems = [
+                { name: 'Home', section: 'Home' },
+                { name: 'About', section: 'About' },
+                { name: 'Services', section: 'Services' },
+                { name: 'Contact', section: 'Contact' }
+            ];
+
+            const menu = document.getElementById('menu');
+
+            menuItems.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="#" onclick="loadSection('${item.section}')">${item.name}</a>`;
+                menu.appendChild(li);
+            });
+        });
+
+        function loadSection(section) {
+            const content = document.getElementById('content');
+            content.innerHTML = `<h2>${section}</h2><p>This is the ${section.toLowerCase()} section of the website.</p>`;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Fancy Website</h1>
+        <nav>
+            <ul id="menu">
+                <!-- Menu items will be dynamically inserted here -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="content">
+            <h2>Home</h2>
+            <p>This is the home section of the website.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Fancy Website</p>
+    </footer>
+</body>
+</html>
+

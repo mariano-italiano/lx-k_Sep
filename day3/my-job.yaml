@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: my-job
+spec:
+  # automatyczne usuwanie joba po okreslonej liczbie sekund
+  ttlSecondsAfterFinished: 60
+  # uruchom 3 pody na raz na kazde uruchomienie Joba
+  parallelism: 3
+  # uruchom Joba dwa razy
+  completions: 2
+  template:
+    spec:
+      containers:
+      - name: c1
+        image: busybox
+        command: ["sh",  "-c", "sleep 15"]
+      restartPolicy: Never
+
+

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: test-taint-pod
+  name: test-taint-pod
+spec:
+  containers:
+  - image: nginx
+    name: test-taint-pod
